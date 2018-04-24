@@ -31,7 +31,7 @@ def init_table():
 @application.route("/")
 def hello():
     nb_stations = init_table()
-    return 'Le nombre de stations est : {}'.format(nb_stations)
+    return 'Nombre de stations : {}'.format(nb_stations)
 
 if __name__ == "__main__":
     application.run()
