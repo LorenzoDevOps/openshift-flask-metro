@@ -3,4 +3,3 @@ Flask
 requests
 bs4
 psycopg2
-os

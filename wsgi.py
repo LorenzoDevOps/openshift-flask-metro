@@ -1,8 +1,9 @@
 # -- How to set 2 apps in Openshift
+import os
+
 from bs4 import BeautifulSoup
 import requests
 import psycopg2
-import os
 from flask import Flask
 
 application = Flask(__name__)
@@ -72,10 +73,10 @@ def init_table():
 def connect_postgres():
     try:
         dbname = os.environ.get("POSTGRESQL_DBNAME","NOT FOUND")
-        user =  os.environ.get("POSTGRESQL_USER","NOT FOUND")
-        host =  os.environ.get("POSTGRESQL_SERVICE_HOST","NOT FOUND")
-        password= os.environ.get("POSTGRESQL_PASSWORD","NOT FOUND")
-        port=os.environ.get("POSTGRESQL_SERVICE_PORT","NOT FOUND")
+        user = os.environ.get("POSTGRESQL_USER","NOT FOUND")
+        host = os.environ.get("POSTGRESQL_SERVICE_HOST","NOT FOUND")
+        password = os.environ.get("POSTGRESQL_PASSWORD","NOT FOUND")
+        port = os.environ.get("POSTGRESQL_SERVICE_PORT","NOT FOUND")
         connect_str = "dbname={} user={} host={} port={} password={}".format(dbname,user,host,port,password)
         # use our connection values to establish a connection
         conn = psycopg2.connect(connect_str)
