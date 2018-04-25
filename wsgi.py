@@ -2,6 +2,7 @@
 from bs4 import BeautifulSoup
 import requests
 import psycopg2
+import os
 from flask import Flask
 
 application = Flask(__name__)
