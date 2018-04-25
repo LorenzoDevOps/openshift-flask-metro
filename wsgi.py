@@ -56,19 +56,31 @@ def init_table():
 
     return nbr_stations
 
+# def connect_postgres():
+#     try:
+#         connect_str = "dbname='metro' user='metro' host='localhost' " + \
+#         "password='metro'"
+#         print("Connecting to database\n	->%s" % (connect_str))
+#         # use our connection values to establish a connection
+#         conn = psycopg2.connect(connect_str)
+#         print("Connected!\n")
+#     except Exception as e:
+#         print("Uh oh, can't connect. Invalid dbname, user or password?")
+#     return conn
+
 def connect_postgres():
     try:
-        connect_str = "dbname='metro' user='metro' host='localhost' " + \
-        "password='metro'"
-        print("Connecting to database\n	->%s" % (connect_str))
+        dbname = os.environ.get("POSTGRESQL_DBNAME","NOT FOUND")
+        user =  os.environ.get("POSTGRESQL_USER","NOT FOUND")
+        host =  os.environ.get("POSTGRESQL_SERVICE_HOST","NOT FOUND")
+        password= os.environ.get("POSTGRESQL_PASSWORD","NOT FOUND")
+        port=os.environ.get("POSTGRESQL_SERVICE_PORT","NOT FOUND")
+        connect_str = "dbname={} user={} host={} port={} password={}".format(dbname,user,host,port,password)
         # use our connection values to establish a connection
         conn = psycopg2.connect(connect_str)
-        print("Connected!\n")
     except Exception as e:
         print("Uh oh, can't connect. Invalid dbname, user or password?")
     return conn
-
-
 
 @application.route("/")
 def hello():

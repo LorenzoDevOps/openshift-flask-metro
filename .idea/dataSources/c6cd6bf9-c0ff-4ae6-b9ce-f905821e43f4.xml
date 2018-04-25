@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Metro">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.8">
+    <root id="1">
+      <ServerVersion>10.3</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="metro">
+      <ObjectId>16384</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12994</ObjectId>
+    </database>
+    <role id="4" parent="1" name="metro">
+      <ObjectId>16385</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CanLogin>1</CanLogin>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="5" parent="1" name="pg_monitor">
+      <ObjectId>3373</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="6" parent="1" name="pg_read_all_settings">
+      <ObjectId>3374</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="7" parent="1" name="pg_read_all_stats">
+      <ObjectId>3375</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="8" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="9" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="10" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+      <BypassRls>1</BypassRls>
+    </role>
+    <schema id="11" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2018-04-24.17:00:36.786</IntrospectionTimestamp>
+      <IntrospectionStateNumber>558</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="12" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="13" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="14" parent="2" name="pg_temp_1">
+      <ObjectId>11736</ObjectId>
+    </schema>
+    <schema id="15" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11737</ObjectId>
+    </schema>
+    <schema id="16" parent="2" name="information_schema">
+      <ObjectId>12703</ObjectId>
+    </schema>
+    <sequence id="17" parent="11" name="metro_data_id_seq">
+      <ObjectId>16386</ObjectId>
+      <StateNumber>557</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <table id="18" parent="11" name="metro_data">
+      <ObjectId>16388</ObjectId>
+      <StateNumber>557</StateNumber>
+    </table>
+    <column id="19" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>557</StateNumber>
+      <DefaultExpression>nextval(&apos;metro_data_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+      <SequenceName>metro_data_id_seq</SequenceName>
+    </column>
+    <column id="20" parent="18" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>557</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="21" parent="18" name="ligne">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>557</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="22" parent="18" name="metro_data_pkey">
+      <ObjectId>16395</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="23" parent="18" name="metro_data_idx">
+      <ObjectId>16397</ObjectId>
+      <ColNames>name
+ligne</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="24" parent="18" name="metro_data_pkey">
+      <ObjectId>16396</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>metro_data_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
